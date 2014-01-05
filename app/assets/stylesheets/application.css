@@ -11,9 +11,12 @@
  *= require_self
  *= require_tree .
  */
+
+/*sets the map div to cover the full page*/
 #map {
  height: 100%;
  width: 100%;
  position: absolute;
  z-index: -1;
  }
+
