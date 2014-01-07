@@ -6,13 +6,16 @@ $(function(){
 function initializeMap(){
   var layer = new L.StamenTileLayer("toner");
 
-  map = new L.Map("map", {
-    center: new L.LatLng(38.7, -98.4),
-    zoom: 4,
-  });
+  map = new L.mapbox.map('map')
+
 
   // this adds the layer created above to the map //
   map.addLayer(layer);
+  map.setView([37.9, -77], 6);
+  map.addControl(L.mapbox.geocoderControl('examples.map-vyofok3q', {
+        keepOpen: true
+    }));
+
 
 var drawnItems = new L.FeatureGroup();
     map.addLayer(drawnItems);
@@ -20,26 +23,33 @@ var drawnItems = new L.FeatureGroup();
     var drawControl = new L.Control.Draw({
       draw: {
         position: 'topleft',
+
         polygon: {
           title: 'Draw a sexy polygon!',
           allowIntersection: false,
           drawError: {
-            color: '#b00b00',
+            color: '#e1e100',
             timeout: 1000
           },
           shapeOptions: {
-            color: '#bada55'
+            color: '#e1e100'
           },
           showArea: true
         },
+
         polyline: {
-          metric: false
-        },
-        circle: {
+          title: 'Draw a line',
           shapeOptions: {
-            color: '#662d91'
-          }
-        }
+            color: '#e1e100'
+          },
+        },
+
+        circle: {
+          title: 'Draw a line',
+          shapeOptions: {
+            color: '#e1e100'
+          },
+        },
       },
       edit: {
         featureGroup: drawnItems
