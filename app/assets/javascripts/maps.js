@@ -11,7 +11,7 @@ function initializeMap(){
 
   // this adds the layer created above to the map //
   map.addLayer(layer);
-  map.setView([37.9, -77], 6);
+  map.setView([39.63, -100.5], 4);
   map.addControl(L.mapbox.geocoderControl('examples.map-vyofok3q', {
         keepOpen: true
     }));
